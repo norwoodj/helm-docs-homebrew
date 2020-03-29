@@ -2,14 +2,14 @@
 class HelmDocs < Formula
   desc "Automatically generate markdown documentation for helm charts"
   homepage "https://github.com/norwoodj/helm-docs"
-  version "0.9.0"
+  version "0.10.0"
 
   if OS.mac?
-    url "https://github.com/norwoodj/helm-docs/releases/download/v0.9.0/helm-docs_0.9.0_Darwin_x86_64.tar.gz"
-    sha256 "d287ba580e13e5ddf4b1682708bf6b8f75f141890b7d3d21b3c2379395cc54e4"
+    url "https://github.com/norwoodj/helm-docs/releases/download/v0.10.0/helm-docs_0.10.0_Darwin_x86_64.tar.gz"
+    sha256 "ca16bf861623707702ec48bc2d69e9fed701a2203ed2e109595f412677e98501"
   elsif OS.linux?
-    url "https://github.com/norwoodj/helm-docs/releases/download/v0.9.0/helm-docs_0.9.0_Linux_x86_64.tar.gz"
-    sha256 "d2ebcda730da672ab3f72f9c15771848b8e8e3d912b246b4f2075cd182a1a2c1"
+    url "https://github.com/norwoodj/helm-docs/releases/download/v0.10.0/helm-docs_0.10.0_Linux_x86_64.tar.gz"
+    sha256 "98e2bb4700bee3486c8f5b1a8df2e75aed58b3abc0692c6c441b6f65e1fbbea6"
   end
 
   def install
