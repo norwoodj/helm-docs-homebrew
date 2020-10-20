@@ -2,16 +2,25 @@
 class HelmDocs < Formula
   desc "Automatically generate markdown documentation for helm charts"
   homepage "https://github.com/norwoodj/helm-docs"
-  version "1.3.0"
+  version "1.4.0"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/norwoodj/helm-docs/releases/download/v1.3.0/helm-docs_1.3.0_Darwin_x86_64.tar.gz"
-    sha256 "7426f6d5d59a102f3064ea599f75cb99af8a733091272add8163e22ecd4f4671"
+    url "https://github.com/norwoodj/helm-docs/releases/download/v1.4.0/helm-docs_1.4.0_Darwin_x86_64.tar.gz"
+    sha256 "2f5903accb8339d6f994f1f80a45e13aaac7c3e2ac4405099b139363fac8dd77"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/norwoodj/helm-docs/releases/download/v1.3.0/helm-docs_1.3.0_Linux_x86_64.tar.gz"
-      sha256 "b126f6a5b4be660cb2e06607ea33ccfb5e4aaae1e9126442e79d66902d865e0a"
+      url "https://github.com/norwoodj/helm-docs/releases/download/v1.4.0/helm-docs_1.4.0_Linux_x86_64.tar.gz"
+      sha256 "5f64db165af74c48804502ccdb3a0c5d220bf71853a2d7dfa1a58b04c345c79c"
+    end
+    if Hardware::CPU.arm?
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/norwoodj/helm-docs/releases/download/v1.4.0/helm-docs_1.4.0_Linux_arm64.tar.gz"
+        sha256 "e52fd34201ed0c0b91f136f114b8a987d4ce6596f5548ea1983677e93ccb2acb"
+      else
+        url "https://github.com/norwoodj/helm-docs/releases/download/v1.4.0/helm-docs_1.4.0_Linux_armv6.tar.gz"
+        sha256 "0ba26f3ecf87ff88060ddf62d565d20dfdf91d9b7bb4cd0323a17c8bc8a0d848"
+      end
     end
   end
 
