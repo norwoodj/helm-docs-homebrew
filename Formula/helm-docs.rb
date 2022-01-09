@@ -6,7 +6,6 @@ class HelmDocs < Formula
   desc "Automatically generate markdown documentation for helm charts"
   homepage "https://github.com/norwoodj/helm-docs"
   version "1.5.0"
-  bottle :unneeded
 
   if OS.mac?
     url "https://github.com/norwoodj/helm-docs/releases/download/v1.5.0/helm-docs_1.5.0_Darwin_x86_64.tar.gz"
