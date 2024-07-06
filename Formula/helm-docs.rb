@@ -5,20 +5,20 @@
 class HelmDocs < Formula
   desc "Automatically generate markdown documentation for helm charts"
   homepage "https://github.com/norwoodj/helm-docs"
-  version "1.13.1"
+  version "1.14.0"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/norwoodj/helm-docs/releases/download/v1.13.1/helm-docs_1.13.1_Darwin_arm64.tar.gz"
-      sha256 "43789d5c057be8ea4486e7b07c5d4792cd8a3680e1d878910438a2a1a43a778e"
+    on_intel do
+      url "https://github.com/norwoodj/helm-docs/releases/download/1.14.0/helm-docs_1.14.0_Darwin_x86_64.tar.gz"
+      sha256 "52852d8efc53ce4275f9335da4e1dd250552a1646df8ddafa289c6b3c39e693d"
 
       def install
         bin.install "helm-docs"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/norwoodj/helm-docs/releases/download/v1.13.1/helm-docs_1.13.1_Darwin_x86_64.tar.gz"
-      sha256 "fb7830b64d6bde9898c8f74ef96e6c4403f1c6369b30bae8a24dee4c237b9751"
+    on_arm do
+      url "https://github.com/norwoodj/helm-docs/releases/download/1.14.0/helm-docs_1.14.0_Darwin_arm64.tar.gz"
+      sha256 "a791cc831cedaf5ae9edbc598f39ba35df35e2c165e6a874b9ebc484f51aeda8"
 
       def install
         bin.install "helm-docs"
@@ -27,28 +27,34 @@ class HelmDocs < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/norwoodj/helm-docs/releases/download/v1.13.1/helm-docs_1.13.1_Linux_arm64.tar.gz"
-      sha256 "4dfa9fe4f069ce5975b772ee4f43416316a6e579b1574bd640be460f553c3f71"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/norwoodj/helm-docs/releases/download/1.14.0/helm-docs_1.14.0_Linux_x86_64.tar.gz"
+        sha256 "493bec8dce5c0ca4111033dea297f4a923a3a0c449c224389c85bcb1f68836d3"
 
-      def install
-        bin.install "helm-docs"
+        def install
+          bin.install "helm-docs"
+        end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/norwoodj/helm-docs/releases/download/v1.13.1/helm-docs_1.13.1_Linux_x86_64.tar.gz"
-      sha256 "df8d803506933ceb92bc2996d8a432059a35fc19a308ac37a141971ffdf7aa33"
+    on_arm do
+      if !Hardware::CPU.is_64_bit?
+        url "https://github.com/norwoodj/helm-docs/releases/download/1.14.0/helm-docs_1.14.0_Linux_arm6.tar.gz"
+        sha256 "9bf94b53557585562b79470115319cac947dafffafc705fe6721d649435a896c"
 
-      def install
-        bin.install "helm-docs"
+        def install
+          bin.install "helm-docs"
+        end
       end
     end
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/norwoodj/helm-docs/releases/download/v1.13.1/helm-docs_1.13.1_Linux_arm6.tar.gz"
-      sha256 "87349bad4440ddcba5ea9a10f2a00f679c58801e4f49c74dacc22ebec6ef318f"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/norwoodj/helm-docs/releases/download/1.14.0/helm-docs_1.14.0_Linux_arm64.tar.gz"
+        sha256 "b20b1795aea148be2de33c307b15fcb83b19771250284a1a95c784ee8c39fa6c"
 
-      def install
-        bin.install "helm-docs"
+        def install
+          bin.install "helm-docs"
+        end
       end
     end
   end
